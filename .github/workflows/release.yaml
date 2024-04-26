@@ -1,0 +1,104 @@
+name: Release
+
+on:
+  push:
+    tags: [ v\d+\.\d+\.\d+\-d\d+ ]
+  release:
+    types: [ published ]
+
+jobs:
+
+  release-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to Quay.io
+        uses: docker/login-action@v1
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_ROBOT_TOKEN }}
+
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+          strip_v: true
+
+      - name: Release image
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          IMG: quay.io/bentoml/yatai-deployment:${{ steps.tag.outputs.tag }}
+        run: make docker-build docker-push
+
+  release-helm-charts:
+    runs-on: ubuntu-latest
+
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+
+    needs:
+      - release-image
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+          strip_v: true
+
+      - name: Check tag
+        id: check-tag
+        run: |
+          if [[ "${{ github.event.ref }}" =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+\-d[0-9]+$ ]]; then
+              echo ::set-output name=match::true
+          fi
+
+      - name: Package, Index and Publish yatai-deployment to public repo
+        working-directory: ./helm/yatai-deployment
+        if: steps.check-tag.outputs.match != 'true'
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: make release
+
+      - name: Package, Index and Publish yatai-deployment to devel repo
+        working-directory: ./helm/yatai-deployment
+        if: steps.check-tag.outputs.match == 'true'
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: make release-devel
+
+      - name: Package, Index and Publish yatai-deployment-crds to public repo
+        working-directory: ./helm/yatai-deployment-crds
+        if: steps.check-tag.outputs.match != 'true'
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: make release
+
+      - name: Package, Index and Publish yatai-deployment-crds to devel repo
+        working-directory: ./helm/yatai-deployment-crds
+        if: steps.check-tag.outputs.match == 'true'
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        run: make release-devel
+
+concurrency:
+  group: yatai-deployment-release-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true

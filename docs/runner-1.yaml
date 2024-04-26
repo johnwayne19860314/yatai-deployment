@@ -1,0 +1,473 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-john-1-runner-0
+  namespace: yatai
+  uid: 118a69ce-cf74-40f0-9c39-a46f068e81e8
+  resourceVersion: '2082702'
+  generation: 2
+  creationTimestamp: '2024-02-22T07:38:36Z'
+  labels:
+    yatai.ai/bento-deployment: local-john-1
+    yatai.ai/bento-deployment-component-name: twenty_news_group
+    yatai.ai/bento-deployment-component-type: runner
+    yatai.ai/bento-deployment-target-type: production
+    yatai.ai/bento-repository: doc_classifier
+    yatai.ai/bento-version: 6zhvoagqskfhrtvf
+    yatai.ai/creator: yatai-deployment
+  annotations:
+    banzaicloud.com/last-applied: >-
+      UEsDBBQACAAIAAAAAAAAAAAAAAAAAAAAAAAIAAAAb3JpZ2luYWzsVl1v2zYU/SvGBfYmyZJjJY3e0tjrAsSxYTvdiqIwaOrK4kKRKkkpUwP/94GS7Ci2u6TY9jIMfqHJe+4Xz7nUE2RoSEwMgegJiBDSEMOk0PZvRQxhHmH9NQojXYW51MxIVUEEsaQryonWLGGowDk0LlFpJgVEcP4tLSXZfNUPSapMmcDWAU7WyE/FiDHnsspQGIiAS0q4+7tMhRscR3g2danMcinsSpAMIQLziMJUK4GPerVRssjfCDdVbuGqEOJUUR2MIWqDe0CuZFxQ27hj0D/Vto4tVUiMVBA1W92ubR1oe9DtnttU5PrQHOucUNzBwQH5KFDNMUGFgqKG6PMTkJx93GejUZVMbLx9CuWA8Dwl9l7WXNKHqfUwQo51EyKjCnSASmGU5BzVbueBiRgieG+LHT1nfTJpcKBg1jpGPL84uzh3BxgP3eFZcum+uxiG7sAPMfTp5SAmBLZftg7oHKlllUaOtO7QE2TE0PT2mHDPNt9p1dY6NIoY3FQWaSthYnOfx8Rg4/mPRaE2Nu9B+BM4duNekJIwTtZ8t711oGXJ/IUDu49ZznfO/tfhf0mHzo8SrWWulQxhAlUrQrWxC/D6KMp+LOkDqj4Ko6pcMmE8nfbyyqRS9NysV6eecW/FhEElCPesbFF5lDOvidbzeu4usL2j3tEN9Vx3zUTcMzSP+n3fq3/Rme/7Pdd9lOqBiY0bM9Xz4ItVeJYRK+nPoFNwwKV2F0VZZ9+yYDadL8GBkvDC/rW+YOvsjz9dLa9uVsvVaDy7nX6ajO+Wq/ubUQfwNv0fOnw/vltOu07vribjjtcXrH4bejG7uu66aMbniVI+jueLm+ldxzTwAi8IXIpkHQTJKcx0/uGg7vNw/W4dJ0Pybri+oP5lsk7C9TC4HJyCX9/eL5bj+XdcJDEJ/YF14Q/C88tkCNsvDrCM1NMrGFzU9xxEoe/7/YbMNZt01ND4pV68E6LgrESBWs+UXNcDLSGMFwqXqUKdSh5DdO5Aakz+AY09z4lJIYK+BX4DB3Kp7LCxFnY0McEMI3yEnFQLpFLEGqLAd8CwDGVh9nsD//nNywgTratGP3s5zWrvlnp74zqSY2eGkVRyiGB5Pav7opDE7JVigsHJaiy0ems54XE14daG17JQ9Tv8BJxlzNQrmhf2ruw7g1kzxoIPln6g8GuBumsV+n7WNQx9f8LaFy1m+wfamGq3LCUvMpzIQrSty+xy1pYVY9nXafb8UOuUKIzdNoB9fJ8OZV9LaHK7WoznH8fz1S/TxfJQfqnUpkvmA8grg+P4+Kx7PL0drSbj5fzmerGazcc/3/zWMd5FeknsVRd/N/71dfwLHX0tSOUx2W8HcVdIboZGMapdo4jQiVQZqshqbvg27Vjmn6BbioSbtMO3NsyPUm6nn+MkX5HT2SH2byjq3y3xr1V1oJeg0cspaQWHlrWwbJH1RzLFK0qtdO6atsSYkILbD4JGYU0jMctNNWLNByrGrMgggknj0wHNvuGtzdAqNxg0mXxPeI2oiSlsjtvtnwEAAP//UEsHCFcR9ZyBBAAA0g0AAFBLAQIUABQACAAIAAAAAABXEfWcgQQAANINAAAIAAAAAAAAAAAAAAAAAAAAAABvcmlnaW5hbFBLBQYAAAAAAQABADYAAAC3BAAAAAA=
+    deployment.kubernetes.io/revision: '1'
+    yatai.ai/bento-repository: doc_classifier
+    yatai.ai/bento-version: 6zhvoagqskfhrtvf
+  ownerReferences:
+    - apiVersion: serving.yatai.ai/v2alpha1
+      kind: BentoDeployment
+      name: local-john-1
+      uid: dee67376-2ed4-43f9-8745-205e50c92daa
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:replicas: {}
+      subresource: scale
+    - manager: manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-02-22T07:38:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:banzaicloud.com/last-applied: {}
+            f:yatai.ai/bento-repository: {}
+            f:yatai.ai/bento-version: {}
+          f:labels:
+            .: {}
+            f:yatai.ai/bento-deployment: {}
+            f:yatai.ai/bento-deployment-component-name: {}
+            f:yatai.ai/bento-deployment-component-type: {}
+            f:yatai.ai/bento-deployment-target-type: {}
+            f:yatai.ai/bento-repository: {}
+            f:yatai.ai/bento-version: {}
+            f:yatai.ai/creator: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"dee67376-2ed4-43f9-8745-205e50c92daa"}: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:yatai.ai/bento-repository: {}
+                f:yatai.ai/bento-version: {}
+              f:labels:
+                .: {}
+                f:yatai.ai/bento-deployment: {}
+                f:yatai.ai/bento-deployment-component-name: {}
+                f:yatai.ai/bento-deployment-component-type: {}
+                f:yatai.ai/bento-deployment-target-type: {}
+                f:yatai.ai/bento-repository: {}
+                f:yatai.ai/bento-version: {}
+                f:yatai.ai/creator: {}
+                f:yatai.ai/selector: {}
+            f:spec:
+              f:containers:
+                k:{"name":"main"}:
+                  .: {}
+                  f:args: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_BENTO_DEPLOYMENT_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_BENTO_DEPLOYMENT_NAMESPACE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_T_CLUSTER_UID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_T_DEPLOYMENT_UID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_T_ORG_UID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"YATAI_T_VERSION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":3000,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:stdin: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:tty: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/dev/shm"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                k:{"name":"metrics-transformer"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"BENTOML_SERVER_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"BENTOML_SERVER_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"NEW_METRICS_PREFIX"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OLD_METRICS_PREFIX"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:livenessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":3003,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:readinessProbe:
+                    .: {}
+                    f:failureThreshold: {}
+                    f:httpGet:
+                      .: {}
+                      f:path: {}
+                      f:port: {}
+                      f:scheme: {}
+                    f:initialDelaySeconds: {}
+                    f:periodSeconds: {}
+                    f:successThreshold: {}
+                    f:timeoutSeconds: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"shared-memory"}:
+                  .: {}
+                  f:emptyDir:
+                    .: {}
+                    f:medium: {}
+                    f:sizeLimit: {}
+                  f:name: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2024-02-22T08:45:23Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+  selfLink: /apis/apps/v1/namespaces/yatai/deployments/local-john-1-runner-0
+status:
+  observedGeneration: 2
+  replicas: 2
+  updatedReplicas: 2
+  readyReplicas: 2
+  availableReplicas: 2
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2024-02-22T08:45:23Z'
+      lastTransitionTime: '2024-02-22T08:45:23Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2024-02-22T08:45:23Z'
+      lastTransitionTime: '2024-02-22T08:45:23Z'
+      reason: NewReplicaSetAvailable
+      message: >-
+        ReplicaSet "local-john-1-runner-0-57957f7d6d" has successfully
+        progressed.
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      yatai.ai/selector: local-john-1-runner-0
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        yatai.ai/bento-deployment: local-john-1
+        yatai.ai/bento-deployment-component-name: twenty_news_group
+        yatai.ai/bento-deployment-component-type: runner
+        yatai.ai/bento-deployment-target-type: production
+        yatai.ai/bento-repository: doc_classifier
+        yatai.ai/bento-version: 6zhvoagqskfhrtvf
+        yatai.ai/creator: yatai-deployment
+        yatai.ai/selector: local-john-1-runner-0
+      annotations:
+        yatai.ai/bento-repository: doc_classifier
+        yatai.ai/bento-version: 6zhvoagqskfhrtvf
+    spec:
+      volumes:
+        - name: shared-memory
+          emptyDir:
+            medium: Memory
+            sizeLimit: 512Mi
+      containers:
+        - name: main
+          image: 127.0.0.1:5000/yatai-bentos:yatai.doc_classifier.6zhvoagqskfhrtvf
+          command:
+            - sh
+            - '-c'
+          args:
+            - >-
+              ./env/docker/entrypoint.sh python -m
+              bentoml._internal.server.cli.runner . --runner-name
+              twenty_news_group --bind tcp://0.0.0.0:3000 --working-dir .
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          env:
+            - name: PORT
+              value: '3000'
+            - name: YATAI_T_DEPLOYMENT_UID
+              value: dee67376-2ed4-43f9-8745-205e50c92daa
+            - name: YATAI_BENTO_DEPLOYMENT_NAME
+              value: local-john-1
+            - name: YATAI_BENTO_DEPLOYMENT_NAMESPACE
+              value: yatai
+            - name: YATAI_T_VERSION
+              value: 1.1.11-ceab11f
+            - name: YATAI_T_ORG_UID
+              value: 65b8bdf4a84b7c09fbf5b4192
+            - name: YATAI_T_CLUSTER_UID
+              value: 65b8bdf4fda50209fb02569f4
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi
+          volumeMounts:
+            - name: shared-memory
+              mountPath: /dev/shm
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 10
+            timeoutSeconds: 20
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 12
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          stdin: true
+          tty: true
+        - name: metrics-transformer
+          image: quay.io/bentoml/yatai-bento-metrics-transformer:0.0.4
+          ports:
+            - name: metrics
+              containerPort: 3003
+              protocol: TCP
+          env:
+            - name: BENTOML_SERVER_HOST
+              value: localhost
+            - name: BENTOML_SERVER_PORT
+              value: '3000'
+            - name: PORT
+              value: '3003'
+            - name: OLD_METRICS_PREFIX
+              value: BENTOML_doc_classifier_
+            - name: NEW_METRICS_PREFIX
+              value: BENTOML_
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 10m
+              memory: 10Mi
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: metrics
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 10
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: metrics
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 10
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: default
+      serviceAccount: default
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

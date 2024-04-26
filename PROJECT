@@ -1,0 +1,55 @@
+domain: yatai.ai
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+multigroup: true
+projectName: yatai-deployment
+repo: github.com/bentoml/yatai-deployment
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: yatai.ai
+  group: serving
+  kind: BentoDeployment
+  path: github.com/bentoml/yatai-deployment/apis/serving/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: false
+  domain: yatai.ai
+  group: serving
+  kind: BentoDeployment
+  path: github.com/bentoml/yatai-deployment/apis/serving/v1alpha2
+  version: v1alpha2
+  webhooks:
+    conversion: true
+    webhookVersion: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: false
+  domain: yatai.ai
+  group: serving
+  kind: BentoDeployment
+  path: github.com/bentoml/yatai-deployment/apis/serving/v1alpha3
+  version: v1alpha3
+  webhooks:
+    conversion: true
+    webhookVersion: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: yatai.ai
+  group: serving
+  kind: BentoDeployment
+  path: github.com/bentoml/yatai-deployment/apis/serving/v2alpha1
+  version: v2alpha1
+  webhooks:
+    conversion: true
+    webhookVersion: v1
+version: "3"

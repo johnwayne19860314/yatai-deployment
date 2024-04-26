@@ -1,0 +1,128 @@
+apiVersion: serving.yatai.ai/v2alpha1
+kind: BentoDeployment
+metadata:
+  creationTimestamp: '2024-02-21T09:20:42Z'
+  generation: 2
+  managedFields:
+    - apiVersion: serving.yatai.ai/v2alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:autoscaling:
+            .: {}
+            f:metrics: {}
+          f:bento: {}
+          f:ingress:
+            .: {}
+            f:enabled: {}
+          f:resources:
+            .: {}
+            f:limits:
+              .: {}
+              f:cpu: {}
+              f:memory: {}
+            f:requests:
+              .: {}
+              f:cpu: {}
+              f:memory: {}
+      manager: __debug_bin4083203956
+      operation: Update
+      time: '2024-02-21T09:20:42Z'
+    - apiVersion: serving.yatai.ai/v2alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:autoscaling:
+            f:maxReplicas: {}
+            f:minReplicas: {}
+          f:runners: {}
+      manager: __debug_bin645906100
+      operation: Update
+      time: '2024-02-22T08:39:56Z'
+    - apiVersion: serving.yatai.ai/v2alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          .: {}
+          f:conditions: {}
+      manager: manager
+      operation: Update
+      subresource: status
+      time: '2024-02-22T10:06:54Z'
+  name: local-john-1
+  namespace: yatai
+  resourceVersion: '2098722'
+  uid: dee67376-2ed4-43f9-8745-205e50c92daa
+  selfLink: >-
+    /apis/serving.yatai.ai/v2alpha1/namespaces/yatai/bentodeployments/local-john-1
+status:
+  conditions:
+    - lastTransitionTime: '2024-02-21T09:20:42Z'
+      message: >-
+        Failed to reconcile BentoDeployment: create or update deployment:
+        DoJsonRequest Error:
+        [GET]http://yatai.yatai-system.svc.cluster.local/api/v1/current_org: GET
+        http://yatai.yatai-system.svc.cluster.local/api/v1/current_org
+        status=403, {"message":"get api token: get default organization: list
+        organizations: failed to connect to
+        `host=postgresql-ha-pgpool.yatai-system.svc.cluster.local user=postgres
+        database=yatai`: dial error (dial tcp 10.96.48.154:5432: connect:
+        connection refused)"}
+      reason: Reconciling
+      status: 'False'
+      type: Available
+    - lastTransitionTime: '2024-02-22T07:38:35Z'
+      message: Bento found
+      reason: Reconciling
+      status: 'True'
+      type: BentoFound
+    - lastTransitionTime: '2024-02-22T07:38:34Z'
+      message: Bento not found
+      reason: Reconciling
+      status: 'True'
+      type: BentoRequestFound
+spec:
+  autoscaling:
+    maxReplicas: 1
+    metrics:
+      - resource:
+          name: cpu
+          target:
+            averageUtilization: 80
+            type: Utilization
+        type: Resource
+    minReplicas: 1
+  bento: doc-classifier--6-zhvoagqskfhrtvf
+  ingress:
+    enabled: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+    requests:
+      cpu: 500m
+      memory: 500Mi
+  runners:
+    - annotations:
+        yatai.ai/enable-debug-mode: 'false'
+        yatai.ai/enable-debug-pod-receive-production-traffic: 'false'
+        yatai.ai/enable-stealing-traffic-debug-mode: 'false'
+      autoscaling:
+        maxReplicas: 10
+        metrics:
+          - resource:
+              name: cpu
+              target:
+                averageUtilization: 80
+                type: Utilization
+            type: Resource
+        minReplicas: 2
+      name: twenty_news_group
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1024Mi
+        requests:
+          cpu: 500m
+          memory: 500Mi
